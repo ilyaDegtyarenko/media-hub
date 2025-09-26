@@ -3,6 +3,10 @@ import './assets/styles/sass/main.sass'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './plugins/router'
 
-createApp(App)
-  .mount('#app')
+const app = createApp(App)
+
+app.use(router)
+
+app.mount('#app')
