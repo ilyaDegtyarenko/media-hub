@@ -1,4 +1,4 @@
-const LoginView = () => import('@/views/LoginView.vue')
+const LoginView = () => import('@/views/auth/LoginView.vue')
 const NotFoundView = () => import('@/views/NotFoundView.vue')
 
 export default [
