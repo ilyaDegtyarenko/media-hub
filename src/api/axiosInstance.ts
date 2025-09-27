@@ -33,7 +33,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     const auth = useAuth()
 
-    if ([ 401, 419 ].includes(error.response.status)) {
+    if ([ 401, 419 ].includes(error.response?.status)) {
       auth.logout()
     }
 
