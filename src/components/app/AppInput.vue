@@ -67,7 +67,7 @@
       <div
         v-if="props.error"
         key="error"
-        class="px-1 text-sm text-red-600"
+        class="px-1 text-sm text-red-600 first-letter:uppercase"
       >
         {{ props.error }}
       </div>
