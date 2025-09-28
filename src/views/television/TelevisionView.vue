@@ -2,20 +2,14 @@
   setup
   lang="ts"
 >
-  import { computed } from 'vue'
-  import { useRoute } from 'vue-router'
   import { useMediaStore } from '@/stores/media.ts'
-  import type { Channel } from '@/ts/types/media.ts'
+  import { useEntityIdFromRoute } from '@/composables/useEntityIdFromRoute.ts'
   import AppPage from '@/components/app/AppPage.vue'
   import AppRouteView from '@/components/app/AppRouteView.vue'
   import ChannelList from '@/components/television/ChannelList.vue'
 
   const mediaStore = useMediaStore()
-  const route = useRoute()
-
-  const channelId = computed<Channel['id']>(() => {
-    return +(route.params?.id || 0)
-  })
+  const channelId = useEntityIdFromRoute()
 
   await mediaStore.fillChannels()
 
@@ -27,6 +21,7 @@
     <ChannelList class="md:basis-2/6 xl:basis-1/4" />
 
     <AppRouteView
+      v-if="channelId"
       :key="channelId"
       :id="channelId"
       class="md:flex-1"

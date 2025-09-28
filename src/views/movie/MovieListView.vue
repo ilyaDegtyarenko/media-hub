@@ -4,7 +4,7 @@
 >
   import { useMediaStore } from '@/stores/media.ts'
   import AppPage from '@/components/app/AppPage.vue'
-  import MovieListItem from '@/components/movie/MovieListItem.vue'
+  import MovieListItem from '@/components/movie/list/MovieListItem.vue'
 
   const mediaStore = useMediaStore()
 

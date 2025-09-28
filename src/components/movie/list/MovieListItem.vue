@@ -5,7 +5,7 @@
   import { ref } from 'vue'
   import type { Movie } from '@/ts/types/media.ts'
   import AppCard from '@/components/app/AppCard.vue'
-  import MovieListItemPoster from '@/components/movie/MovieListItemPoster.vue'
+  import MovieListItemPoster from '@/components/movie/list/MovieListItemPoster.vue'
 
   type Props = {
     item: Movie

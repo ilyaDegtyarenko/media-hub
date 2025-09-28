@@ -4,6 +4,7 @@
 >
   import { ref, computed } from 'vue'
   import { useMediaStore } from '@/stores/media.ts'
+  import { useEntityIdFromRoute } from '@/composables/useEntityIdFromRoute.ts'
   import { refDebounced } from '@vueuse/core'
   import type { Channel } from '@/ts/types/media.ts'
   import AppCard from '@/components/app/AppCard.vue'
@@ -11,6 +12,7 @@
   import ChannelListItem from '@/components/television/ChannelListItem.vue'
 
   const mediaStore = useMediaStore()
+  const channelId = useEntityIdFromRoute()
 
   const searchValue = ref<string>('')
   const debouncedSearchValue = refDebounced(searchValue, 500)
@@ -62,7 +64,7 @@
         v-for="channel in filteredChannels"
         :key="channel.id"
         :channel="channel"
-        :active="channel.id === +$route.params?.id"
+        :active="channel.id === channelId"
       />
     </div>
   </AppCard>

@@ -23,7 +23,6 @@ export type OpenChannelStreamResponse = {
 export type Movie = {
   id: number
   title: string
-  description: string
   tagline: string
   year: number
   rating_imdb: number

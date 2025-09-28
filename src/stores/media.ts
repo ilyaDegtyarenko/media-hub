@@ -36,9 +36,9 @@ export const useMediaStore = defineStore('media', () => {
     }
   }
 
-  const selectChannel = async (id: Channel['id'] | undefined = undefined): Promise<void> => {
+  const selectChannel = async (id: Channel['id'] | null = null): Promise<void> => {
     if (!channels.value.find(v => v.id === id)) {
-      id = channels.value[0]?.id
+      id = +(channels.value[0]?.id || 0)
     }
 
     if (id) {
