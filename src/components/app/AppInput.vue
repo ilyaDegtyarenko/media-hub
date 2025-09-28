@@ -14,6 +14,7 @@
     placeholder?: string
     error?: string | null
     disabled?: boolean
+    inputClass?: string
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -37,12 +38,12 @@
     <input
       key="input"
       :id="inputId"
-      v-bind="$attrs"
       v-model="modelValue"
       :type="props.type"
       :name="props.name"
       :placeholder="props.placeholder"
       :disabled="props.disabled"
+      :class="props.inputClass"
       class="
         appearance-none
         overflow-hidden

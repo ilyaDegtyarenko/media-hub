@@ -27,7 +27,10 @@
 </script>
 
 <template>
-  <AppCard class="overflow-hidden max-h-[calc(100vh-200px)] flex-col gap-4 py-2 px-2">
+  <AppCard
+    class="py-2 px-2 md:h-full max-md:w-full max-md:h-1/2 max-md:overflow-hidden"
+    content-class="flex-col gap-4 md:h-full max-md:h-full"
+  >
     <AppInput
       key="search"
       v-model="searchValue"
@@ -53,7 +56,7 @@
 
     <div
       key="channels"
-      class="overflow-auto flex flex-col gap-3 pb-2 w-full"
+      class="overflow-auto flex flex-col gap-3 pb-2 w-full max-md:h-full"
     >
       <ChannelListItem
         v-for="channel in filteredChannels"

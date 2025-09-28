@@ -1,6 +1,6 @@
 import type { AxiosInstance } from 'axios'
 
-const extraData = {
+const loginExtraData = {
   'device': {
     'type': 'DT_Web_Browser',
     'sub_type': 'DST_WINDOWS',
@@ -18,7 +18,7 @@ export default (fetch: AxiosInstance) => ({
       method: 'POST',
       data: {
         refreshToken,
-        ...extraData,
+        ...loginExtraData,
       },
     })
   },

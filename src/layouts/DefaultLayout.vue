@@ -2,7 +2,6 @@
   lang="ts"
   setup
 >
-  import TheFooter from '@/components/TheFooter.vue'
   import TheHeader from '@/components/TheHeader.vue'
 </script>
 
@@ -10,12 +9,10 @@
   <div class="overflow-auto h-screen flex flex-col bg-[var(--bg-default)]">
     <TheHeader />
 
-    <main class="flex-1 p-4 sm:py-4 sm:px-8">
+    <main class="flex-1 p-4 h-[calc(100%-var(--header-height))]">
       <Suspense>
         <slot />
       </Suspense>
     </main>
-
-    <TheFooter />
   </div>
 </template>

@@ -2,10 +2,9 @@
   lang="ts"
   setup
 >
-  import AppDivider from '@/components/app/AppDivider.vue'
-
   type Props = {
     tag?: string
+    contentClass?: string
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -26,15 +25,10 @@
       <slot name="title" />
     </div>
 
-    <AppDivider
-      v-if="$slots.title"
-      key="divider"
-    />
-
     <div
       key="content"
       class="flex items-start gap-2"
-      v-bind="$attrs"
+      :class="props.contentClass"
     >
       <slot />
     </div>

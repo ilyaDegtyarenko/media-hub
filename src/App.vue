@@ -6,6 +6,7 @@
   import { useRoute } from 'vue-router'
   import DefaultLayout from '@/layouts/DefaultLayout.vue'
   import AuthLayout from '@/layouts/AuthLayout.vue'
+  import AppRouteView from '@/components/app/AppRouteView.vue'
 
   const route = useRoute()
 
@@ -21,11 +22,7 @@
 <template>
   <Transition name="fade-transition">
     <Component :is="layoutComponent">
-      <RouterView v-slot="{ Component }">
-        <Transition name="fade-transition">
-          <Component :is="Component" />
-        </Transition>
-      </RouterView>
+      <AppRouteView />
     </Component>
   </Transition>
 </template>
