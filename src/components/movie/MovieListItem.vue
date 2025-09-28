@@ -2,29 +2,31 @@
   setup
   lang="ts"
 >
+  import { ref } from 'vue'
   import type { Movie } from '@/ts/types/media.ts'
   import AppCard from '@/components/app/AppCard.vue'
-  import AppImage from '@/components/app/AppImage.vue'
+  import MovieListItemPoster from '@/components/movie/MovieListItemPoster.vue'
 
   type Props = {
     item: Movie
   }
 
   const props = defineProps<Props>()
+
+  const isHovered = ref<boolean>(false)
 </script>
 
 <template>
   <AppCard
     class="!p-0 overflow-hidden h-full"
     content-class="relative flex-col w-full sm:w-[300px]"
+    @mouseenter="isHovered = true"
+    @mouseleave="isHovered = false"
   >
-    <div class="size-full">
-      <AppImage
-        :src="props.item.poster_url"
-        :alt="props.item.title"
-        class="size-full"
-      />
-    </div>
+    <MovieListItemPoster
+      :item="props.item"
+      :hovered="isHovered"
+    />
 
     <div class="flex flex-col gap-1 px-4 pb-4 w-full">
       <div class="text-lg font-bold">

@@ -8,6 +8,7 @@
 
   type Props = {
     src: OpenChannelStreamResponse['url']
+    videoAttrs?: Record<string, unknown>
   }
 
   const props = defineProps<Props>()
@@ -74,6 +75,7 @@
       preload="none"
       allow="autoplay; fullscreen"
       class="size-full"
+      v-bind="props.videoAttrs"
     />
   </div>
 </template>
