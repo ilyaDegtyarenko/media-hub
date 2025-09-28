@@ -9,7 +9,7 @@
         :to="{ name: 'movie-list' }"
         class="app-link"
       >
-        < Back to list
+        &lsaquo; Back to list
       </RouterLink>
     </div>
   </div>

@@ -11,6 +11,7 @@
   import MovieEmptyState from '@/components/movie/MovieEmptyState.vue'
   import AppVideoPlayer from '@/components/app/AppVideoPlayer.vue'
   import AppImage from '@/components/app/AppImage.vue'
+  import MovieNavOverlay from '@/components/movie/MovieNavOverlay.vue'
 
   const mediaStore = useMediaStore()
   const movieId = useEntityIdFromRoute()
@@ -25,16 +26,21 @@
 <template>
   <AppPage>
     <AppCard
-      class="h-full !p-0 overflow-hidden"
+      class="group h-full !p-0 overflow-hidden"
       content-class="flex-col h-full bg-black text-white"
     >
       <div
         v-if="movie"
         key="movie"
-        class="flex flex-col h-full"
+        class="relative flex flex-col size-full"
       >
+        <MovieNavOverlay />
+
         <div class="size-full min-h-0">
-          <AppVideoPlayer :src="movie.trailer_url" />
+          <AppVideoPlayer
+            :src="movie.trailer_url"
+            :video-attrs="{ loop: true }"
+          />
         </div>
 
         <div class="flex flex-col gap-2 p-4">
@@ -48,6 +54,10 @@
             <div class="flex flex-col gap-1">
               <div class="text-lg font-medium">
                 {{ movie.title }} ({{ movie.year }})
+
+                <span class="pl-1 text-gray-500 font-normal">
+                  #Trailer
+                </span>
               </div>
 
               <div class="text-xs">

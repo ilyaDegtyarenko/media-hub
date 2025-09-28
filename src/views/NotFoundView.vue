@@ -16,7 +16,7 @@
         :to="{ name: 'login' }"
         class="app-link"
       >
-        < Back
+        &lsaquo; Back
       </RouterLink>
     </div>
   </AppPage>
