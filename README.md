@@ -1,5 +1,47 @@
-# Vue 3 + TypeScript + Vite
+# Random Movie
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<div>
+  <img src="public/apple-touch-icon.png" alt="Media Hub Logo" width="128" height="128">
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+**Find the right movie for you!**
+</div>
+
+## Features
+
+- **TV Channels**
+- **Movies with trailers**
+
+## Tech Stack
+
+- **Frontend Framework**: Vue 3 with Composition API
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **State Management**: Pinia
+- **Routing**: Vue Router
+- **Stream**: hls.js
+- **HTTP Client**: Axios
+- **Styling**: SASS, TailwindCSS
+
+### Installation
+
+1. Install dependencies:
+```bash
+pnpm install
+```
+
+2. Start the development server:
+```bash
+pnpm dev
+```
+
+3. Open your browser and visit `http://localhost:5173`
+
+### Build for Production
+
+```bash
+pnpm build
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
