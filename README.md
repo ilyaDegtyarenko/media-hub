@@ -1,7 +1,7 @@
-# Random Movie
+# Media Hub
 
 <div>
-  <img src="public/apple-touch-icon.png" alt="Media Hub Logo" width="128" height="128">
+  <img src="public/apple-touch-icon.png" alt="Media Hub Logo">
 
 **Find the right movie for you!**
 </div>
