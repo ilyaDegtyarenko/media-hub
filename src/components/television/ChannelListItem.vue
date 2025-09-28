@@ -26,7 +26,10 @@
       p-2
       rounded-lg
       cursor-pointer
+      transition-transform
       hover:bg-[var(--bg-default)]
+      hover:not-active:scale-[1.01]
+      hover:not-active:translate-x-[5px]
     "
     :class="{ 'bg-[var(--bg-default)]': props.active }"
     :style="`--channel-color: ${props.channel.colour}`"

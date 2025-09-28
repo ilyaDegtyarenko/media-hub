@@ -2,7 +2,7 @@ import type { AxiosInstance } from 'axios'
 import type { Channel, Movie } from '@/ts/types/media.ts'
 
 const defaultChannels = [
-  553, 3198, 890, 899, 2979, 1980, 1448,
+  3198, 890, 899, 2979, 1980, 1448,
   903, 1532, 3154, 2630, 3187, 2707, 78,
 ]
 const defaultMovies = [
