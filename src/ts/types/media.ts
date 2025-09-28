@@ -36,7 +36,7 @@ export type Movie = {
     provider: string
     rating_count: number
     value: number
-  }
+  }[]
   [key: string]: any
 }
 
