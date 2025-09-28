@@ -13,3 +13,9 @@ export type GetChannelsResponse = {
   list: Channel[]
   [key: string]: any
 }
+
+export type OpenChannelStreamResponse = {
+  stream_id: number
+  url: string
+  [key: string]: any
+}
