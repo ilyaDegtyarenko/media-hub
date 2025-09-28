@@ -8,7 +8,7 @@
   import type { Channel, OpenChannelStreamResponse } from '@/ts/types/media.ts'
   import AppCard from '@/components/app/AppCard.vue'
   import AppVideoPlayer from '@/components/app/AppVideoPlayer.vue'
-  import ChannelListItemImg from '@/components/television/ChannelListItemImg.vue'
+  import AppImage from '@/components/app/AppImage.vue'
 
   type Props = {
     id: Channel['id']
@@ -73,7 +73,11 @@
       key="details"
       class="flex items-center gap-4 p-4 text-white"
     >
-      <ChannelListItemImg :channel="channel" />
+      <AppImage
+        :src="channel.icon_v2_url"
+        :alt="channel.name"
+        class="size-10"
+      />
 
       <span class="text-lg font-medium">
         {{ channel.name }}

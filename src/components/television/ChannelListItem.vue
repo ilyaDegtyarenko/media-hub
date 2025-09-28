@@ -3,7 +3,7 @@
   setup
 >
   import type { Channel } from '@/ts/types/media.ts'
-  import ChannelListItemImg from '@/components/television/ChannelListItemImg.vue'
+  import AppImage from '@/components/app/AppImage.vue'
 
   type Props = {
     channel: Channel
@@ -48,7 +48,11 @@
       :class="{ 'bg-[var(--channel-color)]': props.active }"
     ></div>
 
-    <ChannelListItemImg :channel="props.channel" />
+    <AppImage
+      :src="props.channel.icon_v2_url"
+      :alt="props.channel.name"
+      class="size-12"
+    />
 
     <div class="text-lg font-medium truncate w-full">
       {{ props.channel.name }}

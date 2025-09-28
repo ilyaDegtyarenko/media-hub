@@ -2,10 +2,11 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import router from '@/plugins/router'
 import { mediaService } from '@/services/media.service.ts'
-import type { Channel } from '@/ts/types/media.ts'
+import type { Channel, Movie } from '@/ts/types/media.ts'
 
 export const useMediaStore = defineStore('media', () => {
   const channels = ref<Channel[]>([])
+  const movies = ref<Movie[]>([])
 
   const fillChannels = async (): Promise<void> => {
     if (channels.value.length) {
@@ -15,9 +16,23 @@ export const useMediaStore = defineStore('media', () => {
     try {
       const { data } = await mediaService.getChannels()
 
-      channels.value = data.list
+      channels.value = data.list || []
     } catch (error) {
       console.error('Error occurred while fetching channels:', error)
+    }
+  }
+
+  const fillMovies = async (): Promise<void> => {
+    if (movies.value.length) {
+      return
+    }
+
+    try {
+      const { data } = await mediaService.getMovies()
+
+      movies.value = data.movies || []
+    } catch (error) {
+      console.error('Error occurred while fetching movies:', error)
     }
   }
 
@@ -36,8 +51,10 @@ export const useMediaStore = defineStore('media', () => {
 
   return {
     channels,
+    movies,
 
     fillChannels,
+    fillMovies,
     selectChannel,
   }
 })

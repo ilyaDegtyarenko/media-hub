@@ -10,6 +10,7 @@
   type NavItem = {
     name: string
     label: string
+    key: string
   }
 
   const auth = useAuth()
@@ -20,22 +21,25 @@
       {
         name: 'television',
         label: 'Television',
+        key: 'television',
       },
       {
-        name: 'movie',
+        name: 'movie-list',
         label: 'Movies',
+        key: 'movie',
       },
     ]
   })
 
   const isNavItemActive = (item: NavItem): boolean => {
-    return route.path.startsWith('/' + item.name)
+    return route.path.startsWith('/' + item.key)
   }
 </script>
 
 <template>
   <header
     class="
+      z-1
       sticky
       top-0
       bg-white
@@ -53,7 +57,7 @@
     <nav class="flex gap-4">
       <RouterLink
         v-for="item in navItems"
-        :key="item.name"
+        :key="item.key"
         :to="{ name: item.name }"
         :class="{
           'hover:text-gray-500': !isNavItemActive(item),

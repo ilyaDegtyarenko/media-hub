@@ -19,3 +19,29 @@ export type OpenChannelStreamResponse = {
   url: string
   [key: string]: any
 }
+
+export type Movie = {
+  id: number
+  title: string
+  description: string
+  tagline: string
+  year: number
+  rating_imdb: number
+  rating_sweet_tv: number
+  trailer_url: string
+  banner_url: string
+  poster_url: string
+  availability_info_color: string
+  age_limit: number
+  scores: {
+    provider: string
+    rating_count: number
+    value: number
+  }
+  [key: string]: any
+}
+
+export type GetMoviesResponse = {
+  movies: Movie[]
+  [key: string]: any
+}
