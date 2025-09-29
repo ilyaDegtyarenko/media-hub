@@ -2,7 +2,7 @@
   setup
   lang="ts"
 >
-  import { onMounted, onScopeDispose, shallowRef, useTemplateRef } from 'vue'
+  import { computed, onMounted, onScopeDispose, shallowRef, useTemplateRef } from 'vue'
   import HLS from 'hls.js'
   import type { OpenChannelStreamResponse } from '@/ts/types/media.ts'
 
@@ -15,6 +15,10 @@
 
   const videoRef = useTemplateRef<HTMLVideoElement>('videoRef')
   const hls = shallowRef<HLS | null>(null)
+
+  const secureUrl = computed<OpenChannelStreamResponse['url']>(() => {
+    return props.src.replace(/^http:\/\//, 'https://')
+  })
 
   const initPlayer = (): void => {
     if (!props.src) {
@@ -37,13 +41,13 @@
     if (HLS.isSupported()) {
       hls.value = new HLS()
 
-      hls.value.loadSource(props.src)
+      hls.value.loadSource(secureUrl.value)
       hls.value.attachMedia(videoRef.value)
       hls.value.on(HLS.Events.MANIFEST_PARSED, () => {
         videoRef.value?.play().catch(console.error)
       })
     } else if (videoRef.value.canPlayType('application/vnd.apple.mpegurl')) {
-      videoRef.value.src = props.src
+      videoRef.value.src = secureUrl.value
 
       videoRef.value.addEventListener('loadedmetadata', () => {
         videoRef.value?.play().catch(console.error)
