@@ -1,6 +1,4 @@
-export type TokenPayload = {
+export type LoginResponse = {
   access_token: string
   expires_in: number
 }
-
-export type LoginResponse = TokenPayload

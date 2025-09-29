@@ -4,12 +4,18 @@ export default async (): Promise<void> => {
   const authStore = useAuthStore()
 
   const accessToken = localStorage.getItem('access_token')
-  const expiresIn = localStorage.getItem('expires_in')
+  const expiresAt = localStorage.getItem('expires_at')
 
-  if (accessToken && expiresIn) {
-    authStore.setAuthData({
-      access_token: accessToken,
-      expires_in: +expiresIn,
-    })
+  if (!accessToken || !expiresAt) {
+    return
+  }
+
+  authStore.setAuthData({
+    access_token: accessToken,
+    expires_at: +expiresAt,
+  })
+
+  if (authStore.isTokenExpired) {
+    authStore.clearAuthData()
   }
 }

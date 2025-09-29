@@ -36,7 +36,10 @@
     try {
       const { data } = await authService.login(refreshToken.value)
 
-      auth.setAuthData(data)
+      auth.setAuthData({
+        access_token: data.access_token,
+        expires_at: Date.now() + (data.expires_in * 1000),
+      })
 
       if (router.currentRoute.value.query.redirect) {
         await router.push(router.currentRoute.value.query.redirect as string)
