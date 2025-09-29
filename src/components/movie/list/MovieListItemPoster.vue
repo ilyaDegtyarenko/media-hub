@@ -23,17 +23,19 @@
       class="size-full"
     />
 
-    <AppVideoPlayer
-      v-if="props.item.trailer_url && props.hovered"
-      key="trailer"
-      :src="props.item.trailer_url"
-      :video-attrs="{
+    <KeepAlive>
+      <AppVideoPlayer
+        v-if="props.item.trailer_url && props.hovered"
+        key="trailer"
+        :src="props.item.trailer_url"
+        :video-attrs="{
         loop: true,
         preload: 'none',
         controls: false,
       }"
-      class="absolute top-0 left-0 size-full"
-    />
+        class="absolute top-0 left-0 size-full"
+      />
+    </KeepAlive>
 
     <div
       v-if="props.item.trailer_url"

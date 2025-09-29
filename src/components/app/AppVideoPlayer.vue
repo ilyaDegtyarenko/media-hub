@@ -2,7 +2,7 @@
   setup
   lang="ts"
 >
-  import { computed, onMounted, onScopeDispose, shallowRef, useTemplateRef } from 'vue'
+  import { computed, onActivated, onMounted, onScopeDispose, shallowRef, useTemplateRef } from 'vue'
   import HLS from 'hls.js'
   import type { OpenChannelStreamResponse } from '@/ts/types/media.ts'
 
@@ -56,6 +56,10 @@
       console.error('HLS is not supported')
     }
   }
+
+  onActivated(() => {
+    videoRef.value?.play().catch(console.error)
+  })
 
   onMounted(() => {
     initPlayer()
